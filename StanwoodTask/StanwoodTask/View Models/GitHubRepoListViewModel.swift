@@ -13,10 +13,11 @@ protocol GitHubRepoListViewModelDelegate {
     func shouldShowRepo(githubrepo: GitHubRepo)
 }
 
-protocol GitHubRepoListViewModelProtocol {
-    var collectionViewDatasource: GitHubRepoListDataSourceProtocol { get set }
-    var collectionViewDelegate: GitHubRepoListDelegateProtocol { get set }
+protocol GitHubRepoListViewModelProtocol: GitHubRepoCollectionViewCellDelegate  {
+    var collectionViewDatasource: GitHubRepoListDataSourceProtocol? { get set }
+    var collectionViewDelegate: GitHubRepoListDelegateProtocol? { get set }
     var delegate: GitHubRepoListViewModelDelegate? { get set }
+    var favouritesManager: FavouritesManagerProtocol { get set}
     
     func getNextPage()
     func segmentedControllerDidChange(selectedIndex: Int)
@@ -25,20 +26,28 @@ protocol GitHubRepoListViewModelProtocol {
 class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
     var delegate: GitHubRepoListViewModelDelegate? {
         didSet {
-            self.collectionViewDelegate.willDisplayCellHandler = {
+            self.collectionViewDelegate?.willDisplayCellHandler = {
                 self.getNextPage()
             }
-            self.collectionViewDelegate.didSelectItemHandler = { (repo) in
+            self.collectionViewDelegate?.didSelectItemHandler = { (repo) in
                 self.delegate?.shouldShowRepo(githubrepo: repo)
             }
         }
     }
-    var collectionViewDatasource: GitHubRepoListDataSourceProtocol = GitHubRepoListDataSource()
-    var collectionViewDelegate: GitHubRepoListDelegateProtocol = GitHubRepoListDelegate()
+    var favouritesManager: FavouritesManagerProtocol = FavouritesManager()
+    
+    var collectionViewDatasource: GitHubRepoListDataSourceProtocol?
+    var collectionViewDelegate: GitHubRepoListDelegateProtocol? = GitHubRepoListDelegate()
     
     var pageNumber: Int = 1
     var currentDuration = GitHubRequestDuration.yesterday
     var datasource = [GitHubRepo]()
+    
+    override init() {
+        super.init()
+        
+        self.collectionViewDatasource = GitHubRepoListDataSource(cellDelegate: self, favouritesManager: self.favouritesManager)
+    }
     
     func getNextPage(){
         self.pageNumber = self.pageNumber + 1
@@ -78,9 +87,16 @@ class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
     }
     
     private func updateDatasourceAndDelegate(items: [GitHubRepo]?){
-        self.collectionViewDatasource.repos = items
-        self.collectionViewDelegate.repos = items
+        self.collectionViewDatasource?.repos = items
+        self.collectionViewDelegate?.repos = items
+    }
+    
+    func didToggleFavourite(repo: GitHubRepo) {
+        self.favouritesManager.isFavourite(repo: repo) ? self.favouritesManager.remove(repo: repo) : self.favouritesManager.save(repo: repo)
+        self.delegate?.didUpdateDataSource()
     }
 }
 
-
+extension GitHubRepoListViewModel: GitHubRepoCollectionViewCellDelegate {
+    
+}

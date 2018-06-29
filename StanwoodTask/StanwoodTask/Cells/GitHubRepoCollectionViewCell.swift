@@ -26,9 +26,10 @@ class GitHubRepoCollectionViewCell: UICollectionViewCell {
     private var delegate: GitHubRepoCollectionViewCellDelegate?
     private var repo: GitHubRepo?
     
-    func configure(repo: GitHubRepo, isFavourite: Bool, delegate: GitHubRepoCollectionViewCellDelegate) {
+    func configure(repo: GitHubRepo, isFavourite: Bool, delegate: GitHubRepoCollectionViewCellDelegate?) {
 
         self.repo = repo
+        self.delegate = delegate
         
         guard let unwrappedRepo = self.repo else {
             return
