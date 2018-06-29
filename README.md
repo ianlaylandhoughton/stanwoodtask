@@ -1,4 +1,4 @@
 # stanwoodtask
 
-Architecture:\n
+Architecture:/n
 Follows the MVVM design pattern. 
