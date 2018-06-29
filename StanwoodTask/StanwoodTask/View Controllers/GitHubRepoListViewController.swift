@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GitHubRepoListViewController: UIViewController {
 
+    // MARK: IBOutlets
+    @IBOutlet var collectionView:   UICollectionView!
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    
+    // MARK: Properties
+    let viewModel = GitHubRepoListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
+    
 }
 
