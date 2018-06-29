@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		28452EF920E63F6300DCD2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452EF820E63F6300DCD2C9 /* AppDelegate.swift */; };
-		28452EFB20E63F6300DCD2C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452EFA20E63F6300DCD2C9 /* ViewController.swift */; };
+		28452EFB20E63F6300DCD2C9 /* GitHubRepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452EFA20E63F6300DCD2C9 /* GitHubRepoListViewController.swift */; };
 		28452EFE20E63F6300DCD2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28452EFC20E63F6300DCD2C9 /* Main.storyboard */; };
 		28452F0020E63F6300DCD2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28452EFF20E63F6300DCD2C9 /* Assets.xcassets */; };
 		28452F0320E63F6300DCD2C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28452F0120E63F6300DCD2C9 /* LaunchScreen.storyboard */; };
+		28452F1020E640AF00DCD2C9 /* GitHubRepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452F0F20E640AF00DCD2C9 /* GitHubRepoListViewModel.swift */; };
+		28452F1220E640F800DCD2C9 /* GitHubRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452F1120E640F800DCD2C9 /* GitHubRepo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		28452EF520E63F6300DCD2C9 /* StanwoodTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanwoodTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28452EF820E63F6300DCD2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		28452EFA20E63F6300DCD2C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		28452EFA20E63F6300DCD2C9 /* GitHubRepoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepoListViewController.swift; sourceTree = "<group>"; };
 		28452EFD20E63F6300DCD2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28452EFF20E63F6300DCD2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28452F0220E63F6300DCD2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		28452F0420E63F6300DCD2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28452F0F20E640AF00DCD2C9 /* GitHubRepoListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepoListViewModel.swift; sourceTree = "<group>"; };
+		28452F1120E640F800DCD2C9 /* GitHubRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +72,7 @@
 		28452F0A20E63F7C00DCD2C9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				28452EFA20E63F6300DCD2C9 /* ViewController.swift */,
+				28452EFA20E63F6300DCD2C9 /* GitHubRepoListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -85,6 +89,7 @@
 		28452F0C20E63F9100DCD2C9 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				28452F0F20E640AF00DCD2C9 /* GitHubRepoListViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 		28452F0D20E63F9D00DCD2C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				28452F1120E640F800DCD2C9 /* GitHubRepo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,7 +181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28452EFB20E63F6300DCD2C9 /* ViewController.swift in Sources */,
+				28452F1220E640F800DCD2C9 /* GitHubRepo.swift in Sources */,
+				28452EFB20E63F6300DCD2C9 /* GitHubRepoListViewController.swift in Sources */,
+				28452F1020E640AF00DCD2C9 /* GitHubRepoListViewModel.swift in Sources */,
 				28452EF920E63F6300DCD2C9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
