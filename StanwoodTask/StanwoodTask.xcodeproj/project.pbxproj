@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28400F5420E665A8004AF10B /* GitHubRepoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28400F5320E665A8004AF10B /* GitHubRepoDetailViewController.swift */; };
+		28400F5620E668D8004AF10B /* GitHubRepoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28400F5520E668D7004AF10B /* GitHubRepoDetailViewModel.swift */; };
 		28452EF920E63F6300DCD2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452EF820E63F6300DCD2C9 /* AppDelegate.swift */; };
 		28452EFB20E63F6300DCD2C9 /* GitHubRepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452EFA20E63F6300DCD2C9 /* GitHubRepoListViewController.swift */; };
 		28452EFE20E63F6300DCD2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28452EFC20E63F6300DCD2C9 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		28400F5320E665A8004AF10B /* GitHubRepoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepoDetailViewController.swift; sourceTree = "<group>"; };
+		28400F5520E668D7004AF10B /* GitHubRepoDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepoDetailViewModel.swift; sourceTree = "<group>"; };
 		28452EF520E63F6300DCD2C9 /* StanwoodTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanwoodTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28452EF820E63F6300DCD2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28452EFA20E63F6300DCD2C9 /* GitHubRepoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepoListViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				28452F0F20E640AF00DCD2C9 /* GitHubRepoListViewModel.swift */,
+				28400F5520E668D7004AF10B /* GitHubRepoDetailViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				28452F1620E645D200DCD2C9 /* Constants.swift in Sources */,
 				28452F2220E64FC900DCD2C9 /* GitHubRepoCollectionViewCell.swift in Sources */,
 				28452F1E20E64F1D00DCD2C9 /* GitHubRepoListDataSource.swift in Sources */,
+				28400F5620E668D8004AF10B /* GitHubRepoDetailViewModel.swift in Sources */,
 				28452F1B20E64B2F00DCD2C9 /* DateExtension.swift in Sources */,
 				28452F1820E645D900DCD2C9 /* GetGitHubRepoRequest.swift in Sources */,
 				28452F1220E640F800DCD2C9 /* GitHubRepo.swift in Sources */,

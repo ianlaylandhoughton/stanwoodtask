@@ -28,8 +28,14 @@ class GitHubRepoListDataSource: NSObject, GitHubRepoListDataSourceProtocol {
             return UICollectionViewCell()
         }
         
-        cell.configure(repo: items[indexPath.row])
+        cell.configure(repo: items[indexPath.row], isFavourite: false, delegate: self)
         
         return cell
+    }
+}
+
+extension GitHubRepoListDataSource: GitHubRepoCollectionViewCellDelegate {
+    func didToggleFavourite(repo: GitHubRepo) {
+        
     }
 }
