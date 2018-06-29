@@ -10,6 +10,12 @@ import UIKit
 
 class GitHubRepoListViewModel: NSObject {
     
+    // MARK: Properties
+    let collectionViewDatasource: GitHubRepoListDataSource = GitHubRepoListDataSource()
+    let collectionViewDelegate: GitHubRepoListDelegate = GitHubRepoListDelegate()
     
+    var pageNumber: Int = 0
+    var currentDuration = GitHubRequestDuration.yesterday
+    var datasource = [GitHubRepo]()
 }
 

@@ -10,6 +10,7 @@ import UIKit
 
 struct GetGitHubRepoRequest {
     
+    // MARK: functions
     func getRequest(duration: GitHubRequestDuration, pageNumber: Int, completion: @escaping (_ repos: [GitHubRepo]?) -> Void) {
     
         guard let dateModifier = self.dateString(duration: duration) else {

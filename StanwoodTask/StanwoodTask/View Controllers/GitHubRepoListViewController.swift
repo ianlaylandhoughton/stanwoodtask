@@ -19,9 +19,11 @@ class GitHubRepoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationItem.titleView = self.segmentedControl
+        
+        self.collectionView?.delegate = self.viewModel.collectionViewDelegate
+        self.collectionView?.dataSource = self.viewModel.collectionViewDatasource
     }
-    
-    
 }
 
