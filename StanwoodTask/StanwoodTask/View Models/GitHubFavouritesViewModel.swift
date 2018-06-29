@@ -10,8 +10,10 @@ import Foundation
 
 class GitHubFavouritesViewModel: NSObject, GitHubRepoListViewModelProtocol {
     
+    // MARK: Properties
     var collectionViewDatasource: GitHubRepoListDataSourceProtocol?
     var collectionViewDelegate: GitHubRepoListDelegateProtocol? = GitHubRepoListDelegate()
+    var favouritesManager: FavouritesManagerProtocol = FavouritesManager()
     
     var delegate: GitHubRepoListViewModelDelegate? {
         didSet {
@@ -21,8 +23,7 @@ class GitHubFavouritesViewModel: NSObject, GitHubRepoListViewModelProtocol {
         }
     }
     
-    var favouritesManager: FavouritesManagerProtocol = FavouritesManager()
-    
+    // MARK: Functions
     override init() {
         super.init()
         
@@ -46,6 +47,7 @@ class GitHubFavouritesViewModel: NSObject, GitHubRepoListViewModelProtocol {
     }
 }
 
+// MARK: GitHubRepoCollectionViewCellDelegate
 extension GitHubFavouritesViewModel: GitHubRepoCollectionViewCellDelegate {
     func didToggleFavourite(repo: GitHubRepo) {
         self.favouritesManager.remove(repo: repo)

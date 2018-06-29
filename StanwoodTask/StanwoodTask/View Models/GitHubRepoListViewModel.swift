@@ -24,6 +24,15 @@ protocol GitHubRepoListViewModelProtocol: GitHubRepoCollectionViewCellDelegate  
 }
 
 class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
+    
+    // MARK: Properties
+    var favouritesManager: FavouritesManagerProtocol = FavouritesManager()
+    var collectionViewDatasource: GitHubRepoListDataSourceProtocol?
+    var collectionViewDelegate: GitHubRepoListDelegateProtocol? = GitHubRepoListDelegate()
+    var pageNumber: Int = 1
+    var currentDuration = GitHubRequestDuration.yesterday
+    var datasource = [GitHubRepo]()
+    
     var delegate: GitHubRepoListViewModelDelegate? {
         didSet {
             self.collectionViewDelegate?.willDisplayCellHandler = {
@@ -35,14 +44,7 @@ class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
         }
     }
     
-    var favouritesManager: FavouritesManagerProtocol = FavouritesManager()
-    var collectionViewDatasource: GitHubRepoListDataSourceProtocol?
-    var collectionViewDelegate: GitHubRepoListDelegateProtocol? = GitHubRepoListDelegate()
-    
-    var pageNumber: Int = 1
-    var currentDuration = GitHubRequestDuration.yesterday
-    var datasource = [GitHubRepo]()
-    
+    // MARK: Functions
     override init() {
         super.init()
         
@@ -88,6 +90,7 @@ class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
     }
 }
 
+// MARK: GitHubRepoCollectionViewCellDelegate
 extension GitHubRepoListViewModel: GitHubRepoCollectionViewCellDelegate {
     func didToggleFavourite(repo: GitHubRepo) {
         self.favouritesManager.isFavourite(repo: repo) ? self.favouritesManager.remove(repo: repo) : self.favouritesManager.save(repo: repo)

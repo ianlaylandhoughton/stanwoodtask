@@ -17,8 +17,8 @@ protocol FavouritesManagerProtocol {
 
 struct FavouritesManager: FavouritesManagerProtocol {
     
+    // MARK: Functions
     func save(repo: GitHubRepo) {
-        
         var savedRepos = self.getFavouriteRepos()
         savedRepos.append(repo)
         
@@ -46,7 +46,6 @@ struct FavouritesManager: FavouritesManagerProtocol {
     
     func isFavourite(repo: GitHubRepo) -> Bool {
         let savedRepos = self.getFavouriteRepos()
-        
         return savedRepos.contains(where: { $0.repoName == repo.repoName })
     }
     

@@ -9,7 +9,6 @@
 import Foundation
 
 protocol GitHubRepoDetailViewModelProtocol {
-    var repo: GitHubRepo? { get set }
     var titleText: String { get }
     var descriptionText: String { get }
     var languageText: String { get }
@@ -21,63 +20,57 @@ protocol GitHubRepoDetailViewModelProtocol {
 
 struct GitHubRepoDetailViewModel: GitHubRepoDetailViewModelProtocol {
     
-    var repo: GitHubRepo?
+    //MARK: Properties
+    private var repo: GitHubRepo
+    
+    init(repo: GitHubRepo) {
+        self.repo = repo
+    }
     
     var titleText: String {
         get {
-            guard let unwrappedRepo = self.repo else {
-                return ""
-            }
-            return unwrappedRepo.repoName
+            return self.repo.repoName
         }
     }
     
     var descriptionText: String {
         get {
-            guard let unwrappedRepo = self.repo, let unwrappedDesc = unwrappedRepo.description else {
-                return ""
+            guard let description = self.repo.description else {
+                return "No description specified"
             }
-            return unwrappedDesc
+            
+            return description
         }
     }
     
     var languageText: String {
         get {
-            guard let unwrappedRepo = self.repo, let unwrappedLang = unwrappedRepo.language else {
-                return ""
+            guard let language = self.repo.language else {
+                return "No language specified"
             }
-            return unwrappedLang
+            
+            return language
         }
     }
     
     var forksText: String {
         get {
-            guard let unwrappedRepo = self.repo else {
-                return ""
-            }
-            return String(unwrappedRepo.forks) + " forks"
+            return String(self.repo.forks) + " forks"
         }
     }
     
     var starsText: String {
         get {
-            guard let unwrappedRepo = self.repo else {
-                return ""
-            }
-            return String(unwrappedRepo.stars) + " stars"
+            return String(self.repo.stars) + " stars"
         }
     }
     
     var createdAtText: String {
         get {
-            guard let unwrappedRepo = self.repo else {
-                return ""
-            }
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
             
-            guard let createdDate = dateFormatter.date(from: unwrappedRepo.creationDate) else {
+            guard let createdDate = dateFormatter.date(from: self.repo.creationDate) else {
                 return ""
             }
             dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -88,11 +81,7 @@ struct GitHubRepoDetailViewModel: GitHubRepoDetailViewModelProtocol {
     
     var githubUrl: URL? {
         get {
-            guard let unwrappedRepo = self.repo else {
-                return nil
-            }
-            
-            return URL(string: unwrappedRepo.githubUrl)
+            return URL(string: self.repo.githubUrl)
         }
     }
 }

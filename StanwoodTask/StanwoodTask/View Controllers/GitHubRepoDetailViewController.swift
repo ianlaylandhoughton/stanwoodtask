@@ -27,31 +27,31 @@ class GitHubRepoDetailViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
-    var viewModel: GitHubRepoDetailViewModelProtocol = GitHubRepoDetailViewModel()
+    var viewModel: GitHubRepoDetailViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.viewModel.titleText
-        self.descriptionLabel.text = self.viewModel.descriptionText
-        self.languageLabel.text = self.viewModel.languageText
+        self.title = self.viewModel?.titleText
+        self.descriptionLabel.text = self.viewModel?.descriptionText
+        self.languageLabel.text = self.viewModel?.languageText
         
-        if self.viewModel.languageText.count == 0 {
+        if self.viewModel?.languageText.count == 0 {
             self.languageImage.isHidden = true
         }
         
-        self.forksLabel.text = self.viewModel.forksText
-        self.starsLabel.text = self.viewModel.starsText
-        self.creationDateLabel.text = self.viewModel.createdAtText
+        self.forksLabel.text = self.viewModel?.forksText
+        self.starsLabel.text = self.viewModel?.starsText
+        self.creationDateLabel.text = self.viewModel?.createdAtText
     }
     
     func configure(repo: GitHubRepo){
-        self.viewModel.repo = repo
+        self.viewModel = GitHubRepoDetailViewModel(repo: repo)
     }
     
     // MARK: IBActions
     @IBAction func didPressShowOnGitHub(sender: UIButton){
-        guard let unwrappedGithubUrl = self.viewModel.githubUrl else {
+        guard let unwrappedGithubUrl = self.viewModel?.githubUrl else {
             return
         }
         

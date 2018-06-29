@@ -23,6 +23,8 @@ class GitHubRepoCollectionViewCell: UICollectionViewCell {
     
     // MARK: Constants
     static let cellIdentifier = "GitHubRepoCellIdentifier"
+    
+    // MARK: Properties
     private var delegate: GitHubRepoCollectionViewCellDelegate?
     private var repo: GitHubRepo?
     
