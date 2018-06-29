@@ -20,7 +20,7 @@ struct GetGitHubRepoRequest {
         guard let gitUrl = URL(string: "https://api.github.com/search/repositories?q=created%3A" + dateModifier + "&sort=stars&order=desc&page=" + String(pageNumber)) else {
             return
         }
-        
+    
         URLSession.shared.dataTask(with: gitUrl) { (data, response, error) in
             guard let data = data else {
                 return
@@ -29,7 +29,6 @@ struct GetGitHubRepoRequest {
             do {
                 let decoder = JSONDecoder()
                 let gitData = try decoder.decode(GitHubRepoList.self, from: data)
-                
                 completion(gitData.repos)
                 
             } catch {

@@ -108,8 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				28452F0F20E640AF00DCD2C9 /* GitHubRepoListViewModel.swift */,
-				28452F1C20E64F1C00DCD2C9 /* GitHubRepoListDataSource.swift */,
-				28452F1D20E64F1C00DCD2C9 /* GitHubRepoListDelegate.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -118,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				28452F1120E640F800DCD2C9 /* GitHubRepo.swift */,
+				28452F1C20E64F1C00DCD2C9 /* GitHubRepoListDataSource.swift */,
+				28452F1D20E64F1C00DCD2C9 /* GitHubRepoListDelegate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

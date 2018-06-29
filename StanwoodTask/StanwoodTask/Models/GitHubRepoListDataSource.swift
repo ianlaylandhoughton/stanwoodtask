@@ -8,12 +8,14 @@
 
 import UIKit
 
-class GitHubRepoListDataSource: NSObject, UICollectionViewDataSource {
+protocol GitHubRepoListDataSourceProtocol: UICollectionViewDataSource {
+    var repos: [GitHubRepo]? { get set }
+}
+
+class GitHubRepoListDataSource: NSObject, GitHubRepoListDataSourceProtocol {
     
-    // MARK: Properties
     var repos: [GitHubRepo]?
     
-    // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.repos?.count ?? 0
     }
