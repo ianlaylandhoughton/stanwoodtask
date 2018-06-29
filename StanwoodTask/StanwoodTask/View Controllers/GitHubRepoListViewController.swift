@@ -18,20 +18,32 @@ class GitHubRepoListViewController: UIViewController {
     @IBOutlet var segmentedControl: UISegmentedControl!
     
     // MARK: Properties
-    var viewModel: GitHubRepoListViewModelProtocol = GitHubRepoListViewModel()
+    var viewModel: GitHubRepoListViewModelProtocol?
     var selectedRepo: GitHubRepo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        switch self.tabBarController?.selectedIndex {
+        case 0:
+            self.viewModel = GitHubRepoListViewModel()
+            self.navigationItem.titleView = self.segmentedControl
+            break
+        case 1:
+            self.viewModel = GitHubFavouritesViewModel()
+            self.navigationItem.title = "Favourites"
+            break
+        default:
+            self.viewModel = GitHubRepoListViewModel()
+            self.navigationItem.titleView = self.segmentedControl
+        }
+    
+        self.viewModel?.delegate = self
         
-        self.navigationItem.titleView = self.segmentedControl
+        self.collectionView?.delegate = self.viewModel?.collectionViewDelegate
+        self.collectionView?.dataSource = self.viewModel?.collectionViewDatasource
         
-        self.viewModel.delegate = self
-        
-        self.collectionView?.delegate = self.viewModel.collectionViewDelegate
-        self.collectionView?.dataSource = self.viewModel.collectionViewDatasource
-        
-        self.viewModel.segmentedControllerDidChange(selectedIndex: self.segmentedControl.selectedSegmentIndex)
+        self.viewModel?.segmentedControllerDidChange(selectedIndex: self.segmentedControl.selectedSegmentIndex)
     }
     
     // MARK: Navigation
@@ -47,7 +59,7 @@ class GitHubRepoListViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction private func segmentedControlDidChange(sender: UISegmentedControl){
-        self.viewModel.segmentedControllerDidChange(selectedIndex: self.segmentedControl.selectedSegmentIndex)
+        self.viewModel?.segmentedControllerDidChange(selectedIndex: self.segmentedControl.selectedSegmentIndex)
         self.collectionView.reloadData()
     }
 }

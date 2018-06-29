@@ -12,6 +12,7 @@ protocol FavouritesManagerProtocol {
     func isFavourite(repo: GitHubRepo) -> Bool
     func save(repo: GitHubRepo)
     func remove(repo: GitHubRepo)
+    func getFavouriteRepos() -> [GitHubRepo]
 }
 
 struct FavouritesManager: FavouritesManagerProtocol {
