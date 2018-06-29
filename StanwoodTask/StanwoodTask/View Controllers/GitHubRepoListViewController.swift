@@ -10,6 +10,9 @@ import UIKit
 
 class GitHubRepoListViewController: UIViewController {
     
+    // MARK: Constants
+    static let DetailSegueIdentifier = "ListToDetailSegue"
+    
     // MARK: IBOutlets
     @IBOutlet var collectionView:   UICollectionView!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -31,6 +34,18 @@ class GitHubRepoListViewController: UIViewController {
         self.viewModel.segmentedControllerDidChange(selectedIndex: self.segmentedControl.selectedSegmentIndex)
     }
     
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == GitHubRepoListViewController.DetailSegueIdentifier {
+            guard let detailController = segue.destination as? GitHubRepoDetailViewController, let repo = self.selectedRepo else {
+                return
+            }
+            
+            detailController.configure(repo: repo)
+        }
+    }
+    
+    // MARK: IBActions
     @IBAction private func segmentedControlDidChange(sender: UISegmentedControl){
         self.viewModel.segmentedControllerDidChange(selectedIndex: self.segmentedControl.selectedSegmentIndex)
         self.collectionView.reloadData()
@@ -44,6 +59,7 @@ extension GitHubRepoListViewController: GitHubRepoListViewModelDelegate {
     
     func shouldShowRepo(githubrepo: GitHubRepo) {
         self.selectedRepo = githubrepo
+        self.performSegue(withIdentifier: GitHubRepoListViewController.DetailSegueIdentifier, sender: nil)
     }
 }
 
