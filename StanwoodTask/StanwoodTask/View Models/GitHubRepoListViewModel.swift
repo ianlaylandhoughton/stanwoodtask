@@ -29,9 +29,9 @@ class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
     var favouritesManager: FavouritesManagerProtocol = FavouritesManager()
     var collectionViewDatasource: GitHubRepoListDataSourceProtocol?
     var collectionViewDelegate: GitHubRepoListDelegateProtocol? = GitHubRepoListDelegate()
-    var pageNumber: Int = 1
-    var currentDuration = GitHubRequestDuration.yesterday
-    var datasource = [GitHubRepo]()
+    private var pageNumber: Int = 1
+    private var currentDuration = GitHubRequestDuration.yesterday
+    private var datasource = [GitHubRepo]()
     
     var delegate: GitHubRepoListViewModelDelegate? {
         didSet {

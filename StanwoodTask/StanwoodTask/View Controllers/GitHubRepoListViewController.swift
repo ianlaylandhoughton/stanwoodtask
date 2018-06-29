@@ -18,8 +18,8 @@ class GitHubRepoListViewController: UIViewController {
     @IBOutlet var segmentedControl: UISegmentedControl!
     
     // MARK: Properties
-    var viewModel: GitHubRepoListViewModelProtocol?
-    var selectedRepo: GitHubRepo?
+    private var viewModel: GitHubRepoListViewModelProtocol?
+    private var selectedRepo: GitHubRepo?
     
     override func viewDidLoad() {
         super.viewDidLoad()

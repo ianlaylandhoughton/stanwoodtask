@@ -27,7 +27,7 @@ class GitHubRepoDetailViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Properties
-    var viewModel: GitHubRepoDetailViewModelProtocol?
+    private var viewModel: GitHubRepoDetailViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
