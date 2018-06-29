@@ -54,7 +54,9 @@ class GitHubRepoListViewController: UIViewController {
 
 extension GitHubRepoListViewController: GitHubRepoListViewModelDelegate {
     func didUpdateDataSource() {
-        self.collectionView.reloadData()
+        DispatchQueue.main.async{
+            self.collectionView.reloadData()
+        }
     }
     
     func shouldShowRepo(githubrepo: GitHubRepo) {

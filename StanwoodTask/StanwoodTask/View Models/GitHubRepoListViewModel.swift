@@ -34,8 +34,8 @@ class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
             }
         }
     }
-    var favouritesManager: FavouritesManagerProtocol = FavouritesManager()
     
+    var favouritesManager: FavouritesManagerProtocol = FavouritesManager()
     var collectionViewDatasource: GitHubRepoListDataSourceProtocol?
     var collectionViewDelegate: GitHubRepoListDelegateProtocol? = GitHubRepoListDelegate()
     
@@ -52,9 +52,7 @@ class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
     func getNextPage(){
         self.pageNumber = self.pageNumber + 1
         self.performRequest {
-            DispatchQueue.main.async {
-                self.delegate?.didUpdateDataSource()
-            }
+            self.delegate?.didUpdateDataSource()
         }
     }
     
@@ -64,9 +62,7 @@ class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
         self.currentDuration = GitHubRequestDuration(rawValue: selectedIndex)!
         self.pageNumber = 1
         self.performRequest {
-            DispatchQueue.main.async {
-                self.delegate?.didUpdateDataSource()
-            }
+            self.delegate?.didUpdateDataSource()
         }
     }
     
@@ -90,13 +86,11 @@ class GitHubRepoListViewModel: NSObject, GitHubRepoListViewModelProtocol {
         self.collectionViewDatasource?.repos = items
         self.collectionViewDelegate?.repos = items
     }
-    
+}
+
+extension GitHubRepoListViewModel: GitHubRepoCollectionViewCellDelegate {
     func didToggleFavourite(repo: GitHubRepo) {
         self.favouritesManager.isFavourite(repo: repo) ? self.favouritesManager.remove(repo: repo) : self.favouritesManager.save(repo: repo)
         self.delegate?.didUpdateDataSource()
     }
-}
-
-extension GitHubRepoListViewModel: GitHubRepoCollectionViewCellDelegate {
-    
 }
