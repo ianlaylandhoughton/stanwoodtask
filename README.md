@@ -4,7 +4,7 @@ My attempt at the Stanwood tech task that will hopefully land me a job!
 
 ## Architecture
 
-The app is written in the MVVM architecture. This was chosen for easy re-use of view controllers by being able to swap out the underlying datasources to accomodate both scenarios the screens are used for. It also seperates out the functionality enough to make testing easier. I've used Protocols where I can and passed them around rather than objects. All classes are also under 100 lines of code each which would make testing much more granular. 
+The app is written in Swift 4.2 using the MVVM architecture. This was chosen for easy re-use of view controllers by being able to swap out the underlying datasources to accomodate both scenarios the screens are used for. It also seperates out the functionality enough to make testing easier. I've used Protocols where I can and passed them around rather than objects. All classes are also under 100 lines of code each which would make testing much more granular. 
 
 ## Things I didn't implement
 
