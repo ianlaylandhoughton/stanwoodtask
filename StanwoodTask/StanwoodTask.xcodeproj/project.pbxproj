@@ -16,6 +16,7 @@
 		28452F1220E640F800DCD2C9 /* GitHubRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452F1120E640F800DCD2C9 /* GitHubRepo.swift */; };
 		28452F1620E645D200DCD2C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452F1520E645D200DCD2C9 /* Constants.swift */; };
 		28452F1820E645D900DCD2C9 /* GetGitHubRepoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452F1720E645D900DCD2C9 /* GetGitHubRepoRequest.swift */; };
+		28452F1B20E64B2F00DCD2C9 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28452F1A20E64B2F00DCD2C9 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		28452F1120E640F800DCD2C9 /* GitHubRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepo.swift; sourceTree = "<group>"; };
 		28452F1520E645D200DCD2C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		28452F1720E645D900DCD2C9 /* GetGitHubRepoRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetGitHubRepoRequest.swift; sourceTree = "<group>"; };
+		28452F1A20E64B2F00DCD2C9 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		28452EF720E63F6300DCD2C9 /* StanwoodTask */ = {
 			isa = PBXGroup;
 			children = (
+				28452F1920E64B0500DCD2C9 /* Extension */,
 				28452F1420E645A700DCD2C9 /* Constants */,
 				28452F1320E6459B00DCD2C9 /* Request */,
 				28452F0E20E63FA700DCD2C9 /* Managers */,
@@ -130,6 +133,14 @@
 				28452F1520E645D200DCD2C9 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		28452F1920E64B0500DCD2C9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				28452F1A20E64B2F00DCD2C9 /* DateExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28452F1620E645D200DCD2C9 /* Constants.swift in Sources */,
+				28452F1B20E64B2F00DCD2C9 /* DateExtension.swift in Sources */,
 				28452F1820E645D900DCD2C9 /* GetGitHubRepoRequest.swift in Sources */,
 				28452F1220E640F800DCD2C9 /* GitHubRepo.swift in Sources */,
 				28452EFB20E63F6300DCD2C9 /* GitHubRepoListViewController.swift in Sources */,

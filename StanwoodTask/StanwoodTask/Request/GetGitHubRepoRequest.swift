@@ -12,7 +12,11 @@ struct GetGitHubRepoRequest {
     
     func getRequest(duration: GitHubRequestDuration, pageNumber: Int, completion: @escaping (_ repos: [GitHubRepo]?) -> Void) {
     
-        guard let gitUrl = URL(string: "https://api.github.com/search/repositories?q=created%3A" + "2018-10-06" + "&sort=stars&order=desc&page=" + String(pageNumber)) else {
+        guard let dateModifier = self.dateString(duration: duration) else {
+            return
+        }
+        
+        guard let gitUrl = URL(string: "https://api.github.com/search/repositories?q=created%3A" + dateModifier + "&sort=stars&order=desc&page=" + String(pageNumber)) else {
             return
         }
         
@@ -31,5 +35,16 @@ struct GetGitHubRepoRequest {
                 completion(nil)
             }
         }.resume()
+    }
+    
+    private func dateString(duration: GitHubRequestDuration) -> String? {
+        switch duration {
+        case .yesterday:
+            return Date.yesterdayDateString()
+        case .lastWeek:
+            return Date.lastWeekDateString()
+        case .lastMonth:
+            return Date.lastMonthDateString()
+        }
     }
 }
