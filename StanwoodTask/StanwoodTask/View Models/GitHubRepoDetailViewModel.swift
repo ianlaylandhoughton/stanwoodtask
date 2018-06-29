@@ -68,12 +68,12 @@ struct GitHubRepoDetailViewModel: GitHubRepoDetailViewModelProtocol {
     var createdAtText: String {
         get {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            dateFormatter.dateFormat = FullDateFormat
             
             guard let createdDate = dateFormatter.date(from: self.repo.creationDate) else {
                 return ""
             }
-            dateFormatter.dateFormat = "dd/MM/yyyy"
+            dateFormatter.dateFormat = FormattedDateFormat
             
             return "Created on " + dateFormatter.string(from: createdDate)
         }

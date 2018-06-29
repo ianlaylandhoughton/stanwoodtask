@@ -17,10 +17,12 @@ struct GetGitHubRepoRequest {
             return
         }
         
-        guard let gitUrl = URL(string: "https://api.github.com/search/repositories?q=created%3A" + dateModifier + "&sort=stars&order=desc&page=" + String(pageNumber)) else {
+        guard let gitUrl = URL(string: GitHubUrlPrefix + dateModifier + GitHubUrlSuffix + String(pageNumber)) else {
             return
         }
     
+        print(gitUrl.absoluteString)
+        
         URLSession.shared.dataTask(with: gitUrl) { (data, response, error) in
             guard let data = data else {
                 return

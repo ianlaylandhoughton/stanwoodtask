@@ -22,7 +22,7 @@ extension Date {
             return nil
         }
         
-        return self.dateFormatter(format: "yyyy-MM-dd").string(from: yesterdaysDate)
+        return self.dateFormatter(format: StandardDateFormat).string(from: yesterdaysDate)
     }
     
     static func lastWeekDateString() -> String? {
@@ -30,7 +30,7 @@ extension Date {
             return nil
         }
         
-        return self.dateFormatter(format: "yyyy-MM-dd").string(from: yesterdaysDate)
+        return self.dateFormatter(format:StandardDateFormat).string(from: yesterdaysDate)
     }
     
     static func lastMonthDateString() -> String? {
@@ -38,6 +38,6 @@ extension Date {
             return nil
         }
         
-        return self.dateFormatter(format: "yyyy-MM-dd").string(from: yesterdaysDate)
+        return self.dateFormatter(format: StandardDateFormat).string(from: yesterdaysDate)
     }
 }

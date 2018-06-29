@@ -139,12 +139,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="tOf-IU-XwG">
-                    <rect key="frame" x="0.0" y="-1" width="326" height="30"/>
+                    <rect key="frame" x="0.0" y="0.0" width="326" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Day"/>
+                        <segment title="Week"/>
                         <segment title="Month"/>
-                        <segment title="Year"/>
                     </segments>
                     <connections>
                         <action selector="segmentedControlDidChangeWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="P6C-dS-J7q"/>

@@ -24,7 +24,7 @@ struct FavouritesManager: FavouritesManagerProtocol {
         
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(savedRepos){
-            UserDefaults.standard.set(encoded, forKey: "FavouriteRepos")
+            UserDefaults.standard.set(encoded, forKey: FavouritesKey)
         }
     }
     
@@ -40,7 +40,7 @@ struct FavouritesManager: FavouritesManagerProtocol {
         
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(savedRepos){
-            UserDefaults.standard.set(encoded, forKey: "FavouriteRepos")
+            UserDefaults.standard.set(encoded, forKey: FavouritesKey)
         }
     }
     
@@ -50,7 +50,7 @@ struct FavouritesManager: FavouritesManagerProtocol {
     }
     
     func getFavouriteRepos() -> [GitHubRepo] {
-        if let favouriteRepos = UserDefaults.standard.value(forKey: "FavouriteRepos") as? Data{
+        if let favouriteRepos = UserDefaults.standard.value(forKey: FavouritesKey) as? Data{
             let decoder = JSONDecoder()
             if let repos = try? decoder.decode(Array.self, from: favouriteRepos) as [GitHubRepo]{
                 return repos
